@@ -16,3 +16,4 @@ alias h='history'
 alias j='jobs -l'
 
 export EDITOR=vim
+export PYTHONPATH=$PYTHONPATH:/repo
