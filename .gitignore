@@ -58,3 +58,4 @@ target/
 
 # Vagrant
 .vagrant/
+.gunicorn.pid
