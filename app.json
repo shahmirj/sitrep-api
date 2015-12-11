@@ -3,5 +3,7 @@
     "description": "",
     "scripts": {},
     "env": {},
-    "addons": []
+    "addons": [
+      "mongolab:sandbox"
+    ]
 }
