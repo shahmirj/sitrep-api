@@ -4,7 +4,7 @@ SERVE_PIDFILE=".gunicorn.pid"
 
 # Run all the tests required
 test:
-	@python -m unittest discover -p "*Test.py" -s tests/controllers/
+	@APPLICATION_ENV=testing python -m unittest discover -p "*Test.py" -s tests/controllers/
 
 # Install the python dataset
 install:

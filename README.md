@@ -5,7 +5,7 @@ This is the API that is used for sitrep
 ## Getting Started
 The app is run using **gunicorn** and the server.py script. The default
 port it is run on is 8000. You can change the port by passing in the
-enviornment variable `PORT`
+environment variable `PORT`
 
 ### Installing
 ```sh
