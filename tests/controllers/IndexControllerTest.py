@@ -30,7 +30,7 @@ class IndexControllerTest(unittest.TestCase):
   response
   """
   def test_controller_returns_response(self):
-    self.assertEqual(self.app.get('/').data, '{"hello": "world"}')
+    self.assertEqual(self.app.get('/').data, '{"hello": "david"}')
 
 if __name__ == '__main__':
     unittest.main()
