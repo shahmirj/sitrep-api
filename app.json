@@ -4,6 +4,6 @@
     "scripts": {},
     "env": {},
     "addons": [
-      "mongolab:sandbox"
+      "mongolab"
     ]
 }
