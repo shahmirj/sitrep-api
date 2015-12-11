@@ -13,4 +13,4 @@ for all controllers
 class IndexController(Resource):
 
   def get(self):
-        return {'hello': 'world'}
+        return {'hello': 'david'}
