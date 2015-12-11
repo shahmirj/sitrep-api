@@ -1,6 +1,9 @@
 
 SERVE_PIDFILE=".gunicorn.pid"
 
+test:
+	@python -m unittest discover -p "Test*" -s tests/
+
 # Install the python dataset
 install:
 	sudo pip install -r requirements.txt
