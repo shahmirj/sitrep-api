@@ -2,7 +2,6 @@
 This class tests the Index Controller
 """
 
-
 # Global imports
 import unittest
 from flask import Request
@@ -23,7 +22,6 @@ class IndexControllerTest(unittest.TestCase):
   """
   def setUp(self):
     self.app = server.app.test_client()
-    #self.controller = IndexController(Resource());
 
   """
   When I send a request to the controller it should return with a

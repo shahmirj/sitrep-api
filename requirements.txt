@@ -1,3 +1,4 @@
 Flask==0.10.1
 flask-restful==0.2.12
 gunicorn==19.3.0
+pymongo==3.1
