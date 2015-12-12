@@ -26,7 +26,7 @@ class Mongo:
     if Mongo.client == None:
       connection_string = os.environ.get(
         'MONGOLAB_URI',
-        'mongodb://127.0.0.1:27017'
+        'mongodb://127.0.0.1:27017/sitrep'
       );
       Mongo.client = MongoClient(connection_string);
 

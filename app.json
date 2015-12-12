@@ -5,5 +5,8 @@
     "env": {},
     "addons": [
       "mongolab"
-    ]
+    ],
+    "scripts": {
+      "postdeploy": "python app/scripts/postdeploy.py"
+    }
 }
