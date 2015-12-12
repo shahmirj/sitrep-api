@@ -1,31 +1,32 @@
 #!/usr/bin/env python
+"""
+This file holds functions used to run the setup for a database
 
-from app.models.Mongo import Mongo
+Use the main function to run the setup procedure. Non main function
+individual functions are used to make things nice
+"""
+
 from pymongo.database import CollectionInvalid
+from app.models.Mongo import Mongo
 
-"""
-This function will setup the collections if they don't exist
-"""
+
 def main():
-  db = Mongo().get_client().get_default_database()
-  createCollections(db)
-  createIndexes(db)
+  """
+  This function will setup the collections if they don't exist
+  """
+  database = Mongo().get_db()
+  create_collections(database)
 
-"""
-Given a database set create collections
-"""
-def createCollections(db):
-  for collection in [ 'users', 'orgs', 'services' ]:
+
+def create_collections(database):
+  """
+  Given a database set create collections
+  """
+  for collection in ['users', 'orgs', 'services']:
     try:
-      db.create_collection(collection)
-    except CollectionInvalid as e:
+      database.create_collection(collection)
+    except CollectionInvalid:
       print "'" + collection + "' already exists! Skipped."
 
-"""
-Given a database set the default indexes required
-"""
-def createIndexes(db):
-  pass
-
 if __name__ == '__main__':
-    main()
+  main()

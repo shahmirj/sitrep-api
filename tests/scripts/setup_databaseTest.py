@@ -8,7 +8,6 @@ import os
 from pymongo import MongoClient
 from pymongo.database import Database
 
-
 # Local includes
 from app.models.Mongo import Mongo
 from app.scripts import setup_database

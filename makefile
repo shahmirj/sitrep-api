@@ -7,6 +7,10 @@ test:
 	@APPLICATION_ENV=testing python -m unittest discover -p "*Test.py" \
 		-s tests/
 
+# Lints to ensure things are working as expected
+test-lint:
+	pylint --indent-string="  " app/
+
 # Install the python dataset
 install:
 	sudo pip install -r requirements.txt

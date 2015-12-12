@@ -1,1 +1,5 @@
-__all__ = [ "IndexController" ]
+"""
+This module holds all controllers
+"""
+
+__all__ = ["IndexController"]
