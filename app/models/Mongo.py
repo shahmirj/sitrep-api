@@ -4,6 +4,9 @@ This file holds the definition of our Mongo class
 @author Shahmir Javaid
 """
 
+import sys
+import os
+
 from pymongo import MongoClient
 
 """
@@ -21,13 +24,10 @@ class Mongo:
   @staticmethod
   def get_client():
     if Mongo.client == None:
-      Mongo.client = MongoClient();
+      connection_string = os.environ.get(
+        'MONGOLAB_URI',
+        'mongodb://127.0.0.1:27017'
+      );
+      Mongo.client = MongoClient(connection_string);
 
     return Mongo.client
-
-  """
-  Get the instance of the database from the client
-  """
-  @staticmethod
-  def get_database():
-    return Mongo.client.mydb

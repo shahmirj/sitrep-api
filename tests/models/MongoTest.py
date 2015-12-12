@@ -4,6 +4,7 @@ This class tests the Index Controller
 
 # Global imports
 import unittest
+import os
 from pymongo import MongoClient
 from pymongo.database import Database
 
@@ -20,6 +21,7 @@ class MongoTest(unittest.TestCase):
   Set up a global instance of the controller
   """
   def setUp(self):
+    Mongo.client = None;
     self.mongo = Mongo()
 
   """
@@ -30,11 +32,16 @@ class MongoTest(unittest.TestCase):
     self.assertIsInstance(Mongo.get_client(), MongoClient);
 
   """
-  When I ask for the database it should return me the database as
-  loaded from configurations
+  Make sure the connection string by default is taken from the
+  enviornment variable MONGOLAB_URI
   """
-  def test_mongo_returns_database(self):
-    self.assertIsInstance(Mongo.get_database(), Database);
+  def test_mongo_returns_client_using_env_vars(self):
+    os.environ['MONGOLAB_URI'] = 'mongodb://localhost:27017'
+    client  = Mongo.get_client()
+    address = client.address
+    self.assertEqual(address[0], 'localhost')
+    self.assertEqual(address[1], 27017)
+    del os.environ['MONGOLAB_URI']
 
 if __name__ == '__main__':
     unittest.main()
