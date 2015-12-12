@@ -36,12 +36,10 @@ class MongoTest(unittest.TestCase):
   enviornment variable MONGOLAB_URI
   """
   def test_mongo_returns_client_using_env_vars(self):
-    os.environ['MONGOLAB_URI'] = 'mongodb://localhost:27017'
     client  = Mongo.get_client()
     address = client.address
-    self.assertEqual(address[0], 'localhost')
+    self.assertEqual(address[0], '127.0.0.1')
     self.assertEqual(address[1], 27017)
-    del os.environ['MONGOLAB_URI']
 
 if __name__ == '__main__':
     unittest.main()
