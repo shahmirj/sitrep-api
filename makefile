@@ -10,6 +10,8 @@ test:
 # Install the python dataset
 install:
 	sudo pip install -r requirements.txt
+install-travis:
+	pip install -r requirements.txt
 
 # Set the postdeploy to work
 postdeploy:
