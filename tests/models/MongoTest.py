@@ -31,10 +31,6 @@ class MongoTest(unittest.TestCase):
   def test_mongo_returns_client(self):
     self.assertIsInstance(Mongo.get_client(), MongoClient)
     client  = Mongo.get_client()
-    address = client.address
-    self.assertEqual(address[0], '127.0.0.1')
-    self.assertEqual(address[1], 27017)
-
     self.assertEqual(client.get_default_database().name, 'sitrep')
 
 if __name__ == '__main__':
