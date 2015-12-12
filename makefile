@@ -4,11 +4,22 @@ SERVE_PIDFILE=".gunicorn.pid"
 
 # Run all the tests required
 test:
-	@APPLICATION_ENV=testing python -m unittest discover -p "*Test.py" -s tests/controllers/
+	@APPLICATION_ENV=testing python -m unittest discover -p "*Test.py" \
+		-s tests/
+
+# Lints to ensure things are working as expected
+test-lint:
+	pylint --reports=no --indent-string="  " app/
 
 # Install the python dataset
 install:
 	sudo pip install -r requirements.txt
+install-travis:
+	pip install -r requirements.txt
+
+# Set the postdeploy to work
+postdeploy:
+	@python app/scripts/setup_database.py
 
 # Start the process
 serve-start:

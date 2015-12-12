@@ -6,11 +6,16 @@ This file holds the definition of our ControllerBase
 
 from flask_restful import Resource
 
-"""
-This is our Base controller which holds the information required
-for all controllers
-"""
-class IndexController(Resource):
 
-  def get(self):
-        return {'hello': 'david'}
+class IndexController(Resource):
+  """
+  This is our Base controller which holds the information required
+  for all controllers
+  """
+
+  @classmethod
+  def get(cls):
+    """
+    Simple GET call for /
+    """
+    return {'hello': 'david'}

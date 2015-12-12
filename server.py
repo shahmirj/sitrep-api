@@ -11,7 +11,7 @@ from flask import Flask, Response, url_for
 from flask_restful import Resource, Api
 
 # App includes
-from controllers.IndexController import IndexController
+from app.controllers.IndexController import IndexController
 
 app = Flask(__name__, static_url_path='/pub')
 api = Api(app)
