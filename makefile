@@ -9,7 +9,7 @@ test:
 
 # Lints to ensure things are working as expected
 test-lint:
-	pylint --indent-string="  " app/
+	pylint --reports=no --indent-string="  " app/
 
 # Install the python dataset
 install:
