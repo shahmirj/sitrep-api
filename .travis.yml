@@ -8,5 +8,4 @@ install:
   make install-travis
 
 script:
-  make test-lint
-  make test
+  make test-lint test
