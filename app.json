@@ -7,6 +7,6 @@
       "mongolab"
     ],
     "scripts": {
-      "postdeploy": "python app/scripts/postdeploy.py"
+      "postdeploy": "make postdeploy"
     }
 }

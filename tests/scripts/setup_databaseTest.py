@@ -11,7 +11,7 @@ from pymongo.database import Database
 
 # Local includes
 from app.models.Mongo import Mongo
-from app.scripts import postdeploy
+from app.scripts import setup_database
 
 """
 This class tests the ControllerBase by creating a mock from this
@@ -32,7 +32,7 @@ class MongoTest(unittest.TestCase):
   When I run postdeploy it creates a connection
   """
   def test_running_postdeploy_creates_structure(self):
-    postdeploy.main()
+    setup_database.main()
     collections = self.mongo.get_client()\
       .get_default_database().collection_names(include_system_collections=False)
     self.assertEqual(

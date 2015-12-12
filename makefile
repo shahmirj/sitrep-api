@@ -11,6 +11,10 @@ test:
 install:
 	sudo pip install -r requirements.txt
 
+# Set the postdeploy to work
+postdeploy:
+	@python app/scripts/setup_database.py
+
 # Start the process
 serve-start:
 	@gunicorn server:app -c config/gunicorn.py --log-file=- -p $(SERVE_PIDFILE) -D
