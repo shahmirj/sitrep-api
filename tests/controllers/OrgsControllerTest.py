@@ -4,9 +4,11 @@ This class tests the OrgsController
 
 # Global imports
 import unittest
+import os
 from flask import Request, json
 from flask_restful import Resource
 from mongoengine import *
+from mongoengine.connection import _get_db
 
 # Local includes
 from app.models.Org import Org
@@ -22,8 +24,6 @@ class OrgsControllerTest(unittest.TestCase):
   """
   def setUp(self):
     self.app = server.app.test_client()
-    connect('sitrep', host='mongomock://localhost')
-
 
   def test_orgs_returns_empty_array_on_default(self):
     """

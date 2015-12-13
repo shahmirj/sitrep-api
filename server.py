@@ -17,7 +17,7 @@ from app.controllers.OrgsController import OrgsController
 
 
 app = Flask(__name__, static_url_path='/pub')
-api = Api(app)
+api = Api(app, catch_all_404s=True)
 connect(
   'sitrep',
   host=os.environ.get(
