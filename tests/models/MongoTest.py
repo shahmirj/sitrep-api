@@ -31,14 +31,14 @@ class MongoTest(unittest.TestCase):
   def test_mongo_returns_client(self):
     self.assertIsInstance(Mongo.get_client(), MongoClient)
     client = self.mongo.get_client()
-    self.assertEqual(client.get_default_database().name, 'sitrep')
+    self.assertEqual(client.get_default_database().name, 'sitrep_testing')
 
   """
   When I call the get_db function I should get the default database
   """
   def test_mongo_get_database(self):
     self.assertIsInstance(self.mongo.get_db(), Database)
-    self.assertEqual(self.mongo.get_db().name, 'sitrep')
+    self.assertEqual(self.mongo.get_db().name, 'sitrep_testing')
 
 if __name__ == '__main__':
     unittest.main()

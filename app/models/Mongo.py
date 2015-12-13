@@ -31,7 +31,7 @@ class Mongo(object):
     if Mongo.client is None:
       connection_string = os.environ.get(
           'MONGOLAB_URI',
-          'mongodb://127.0.0.1:27017/sitrep'
+          'mongodb://127.0.0.1:27017/sitrep_testing'
       )
       Mongo.client = MongoClient(connection_string)
 

@@ -40,5 +40,6 @@ class MongoTest(unittest.TestCase):
     )
     self.assertEqual(3, len(collections))
 
+
 if __name__ == '__main__':
     unittest.main()

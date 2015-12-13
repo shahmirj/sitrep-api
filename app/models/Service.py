@@ -1,5 +1,9 @@
-from mongoengine import *
+"""
+This is the file that holds the Service Mongo model
+"""
+
 import datetime
+from mongoengine import Document, StringField, DateTimeField
 
 class Service(Document):
   """

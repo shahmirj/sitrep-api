@@ -15,16 +15,23 @@ from mongoengine import *
 from app.controllers.IndexController import IndexController
 from app.controllers.OrgsController import OrgsController
 
-
 app = Flask(__name__, static_url_path='/pub')
 api = Api(app, catch_all_404s=True)
-connect(
-  'sitrep',
-  host=os.environ.get(
-      'MONGOLAB_URI',
-      'mongodb://127.0.0.1:27017/sitrep'
-    )
-)
+
+enviornment = os.environ.get('APPLICATION_ENV','production')
+print "Enviornment set to " + enviornment + "."
+
+# Set to debug if enviornment is set to testing or development
+if enviornment == "testing" or enviornment == "development":
+  debug=True
+else:
+  debug=False
+
+if enviornment == 'testing':
+  host = 'mongodb://127.0.0.1:27017/sitrep_testing'
+else:
+  host=os.environ.get('MONGOLAB_URI', 'mongodb://127.0.0.1:27017/sitrep'),
+connect('sitrep', host=host, alias='default')
 
 @app.route('/favicon.ico')
 def favicon():
@@ -37,16 +44,6 @@ def favicon():
 # Add the resources for routing
 api.add_resource(IndexController, "/")
 api.add_resource(OrgsController, "/orgs/")
-
-enviornment = os.environ.get('APPLICATION_ENV','production')
-print "Enviornment set to " + enviornment + "."
-
-# Set to debug if enviornment is set to testing or development
-if enviornment == "testing" or enviornment == "development":
-  debug=True
-else:
-  debug=False
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=debug)

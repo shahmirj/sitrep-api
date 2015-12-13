@@ -1,5 +1,11 @@
-from mongoengine import *
+"""
+This file holds the definition of the Mongo Org document
+"""
+
 import datetime
+
+from mongoengine import Document, StringField, DateTimeField
+from mongoengine import ListField, ReferenceField
 
 from app.models.Service import Service
 

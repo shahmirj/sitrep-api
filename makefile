@@ -9,7 +9,8 @@ test:
 
 # Lints to ensure things are working as expected
 test-lint:
-	pylint --reports=no --indent-string="  " app/
+	@pylint --reports=no --generated-members=objects\
+	 	--indent-string="  " app/
 
 # Install the python dataset
 install:

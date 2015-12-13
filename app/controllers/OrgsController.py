@@ -7,8 +7,6 @@ This file holds the definition of our ControllerBase
 from flask_restful import Resource, fields, marshal_with
 
 from app.models.Org import Org
-from bson import json_util
-import json
 
 class OrgsController(Resource):
   """
@@ -17,9 +15,9 @@ class OrgsController(Resource):
   """
 
   resource_fields = {
-    '_id':  fields.String,
-    'name': fields.String,
-    'services': fields.List(fields.String)
+      '_id':  fields.String,
+      'name': fields.String,
+      'services': fields.List(fields.String)
   }
 
   @classmethod
