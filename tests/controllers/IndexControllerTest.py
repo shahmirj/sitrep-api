@@ -1,5 +1,5 @@
 """
-This class tests the Index Controller
+This class tests the IndexController
 """
 
 # Global imports

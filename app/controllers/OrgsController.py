@@ -6,7 +6,11 @@ This file holds the definition of our ControllerBase
 
 from flask_restful import Resource
 
-class IndexController(Resource):
+from app.models.Org import Org
+from bson import json_util
+import json
+
+class OrgsController(Resource):
   """
   This is our Base controller which holds the information required
   for all controllers
@@ -15,6 +19,9 @@ class IndexController(Resource):
   @classmethod
   def get(cls):
     """
-    Simple GET call for /
+    Simple GET call for /orgs/
     """
-    return {'hello': 'david'}
+    orgs = []
+    for org in Org.objects():
+      orgs.append(org.to_mongo().to_dict())
+    return orgs;

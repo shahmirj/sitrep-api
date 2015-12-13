@@ -9,12 +9,22 @@ sys.path.append("./app");
 # Global includes
 from flask import Flask, Response, url_for
 from flask_restful import Resource, Api
+from mongoengine import *
 
 # App includes
 from app.controllers.IndexController import IndexController
+from app.controllers.OrgsController import OrgsController
+
 
 app = Flask(__name__, static_url_path='/pub')
 api = Api(app)
+connect(
+  'sitrep',
+  host=os.environ.get(
+      'MONGOLAB_URI',
+      'mongodb://127.0.0.1:27017/sitrep'
+    )
+)
 
 @app.route('/favicon.ico')
 def favicon():
@@ -26,6 +36,7 @@ def favicon():
 
 # Add the resources for routing
 api.add_resource(IndexController, "/")
+api.add_resource(OrgsController, "/orgs/")
 
 enviornment = os.environ.get('APPLICATION_ENV','production')
 print "Enviornment set to " + enviornment + "."
