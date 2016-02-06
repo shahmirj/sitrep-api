@@ -15,7 +15,6 @@ class OrgsController(Resource):
   """
 
   resource_fields = {
-      '_id':  fields.String,
       'name': fields.String,
       'services': fields.List(fields.String)
   }

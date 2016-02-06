@@ -19,7 +19,6 @@ app = Flask(__name__, static_url_path='/pub')
 api = Api(app, catch_all_404s=True)
 
 enviornment = os.environ.get('APPLICATION_ENV','production')
-print "Enviornment set to " + enviornment + "."
 
 # Set to debug if enviornment is set to testing or development
 if enviornment == "testing" or enviornment == "development":
@@ -30,7 +29,11 @@ else:
 if enviornment == 'testing':
   host = 'mongodb://127.0.0.1:27017/sitrep_testing'
 else:
-  host=os.environ.get('MONGOLAB_URI', 'mongodb://127.0.0.1:27017/sitrep'),
+  host=os.environ.get('MONGOLAB_URI', 'mongodb://127.0.0.1:27017/sitrep')
+
+print "Enviornment set to " + enviornment + "."
+print "Connecting to '" + host + "'."
+
 connect('sitrep', host=host, alias='default')
 
 @app.route('/favicon.ico')
