@@ -31,7 +31,7 @@ if enviornment == 'testing':
 else:
   host=os.environ.get('MONGOLAB_URI', 'mongodb://127.0.0.1:27017/sitrep')
 
-print "Enviornment set to " + enviornment + "."
+print "Environment set to " + enviornment + "."
 print "Connecting to '" + host + "'."
 
 connect('sitrep', host=host, alias='default')
